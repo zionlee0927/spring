@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local
+
+  application:
+    name: spring-example
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mydb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: user
+    password: user123!@#
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        discriminator:
+          ignore_explicit_for_joined: true
+        globally_quoted_identifiers: true
+        show_sql: true
+        format_sql: true
+
+  web:
+    resources:
+      add-mappings: false
+
+logging:
+  config: classpath:log/log4j2-local.yaml
+
+jwt:
+  secret-key:
+    api: apiSecretKeyApiSecretKeyApiSecretKeyApiSecretKeyApiSecretKeyApiSecretKey
+    center: centerSecretKeyCenterSecretKeyCenterSecretKeyCenterSecretKeyCenterSecretKey
+    admin: adminSecretKeyAdminSecretKeyAdminSecretKeyAdminSecretKeyAdminSecretKeyAdmin
+
+service:
+  token:
+    info:
+      internal: 9d8f246f-61e3-4a25-901d-6623e1e83605

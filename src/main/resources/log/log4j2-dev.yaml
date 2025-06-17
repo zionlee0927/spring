@@ -1,0 +1,25 @@
+Configuration:
+  status: warn
+
+  Appenders:
+    Console:
+      - name: CUSTOM_LAYOUT_APPENDER
+        target: SYSTEM_OUT
+        CustomLayout: { }
+      - name: NORMAL_LAYOUT_APPENDER
+        target: SYSTEM_OUT
+        PatternLayout:
+          Pattern: "{\"date\":\"%d{yyyy-MM-dd}\", \"message\":\"%msg\"} %n%wEx"
+
+  Loggers:
+    Root:
+      level: INFO
+      AppenderRef:
+        ref: NORMAL_LAYOUT_APPENDER
+
+    Logger:
+      - name: CUSTOM_JSON_LAYOUT_LOGGER
+        level: info
+        additivity: false
+        AppenderRef:
+          ref: CUSTOM_LAYOUT_APPENDER
